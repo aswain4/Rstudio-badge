@@ -1,0 +1,56 @@
+```{r}
+library(ggplot2)
+
+#start with small n
+d1 <- data.frame(value=rnorm(20))
+small_norm <- ggplot(d1, aes(x=value)) + geom_histogram()
+print(small_norm)
+```
+
+### the above graph is of a low n normal distribution
+
+### section below is code for low n binomial distribution
+
+```{r}
+d2 <- data.frame(value=rbinom(20, 20, 0.5))
+small_binom <- ggplot(d2, aes(x=value)) + geom_histogram()
+print(small_binom)
+```
+
+As we can see with the 2 graphs above. They do not look alike. \## Now we will transition to distribution with moderate-sized N \### The below graph and code is for a normal distribution
+
+```{r}
+d3 <- data.frame(value=rnorm(250))
+mod_norm <- ggplot(d3, aes(x=value)) + geom_histogram()
+print(mod_norm)
+```
+
+### The below graph and code is for a binomial distribution
+
+Note how much more similar this graph is to the moderate-N normal relative to the small-N graphs.
+
+```{r}
+d4 <- data.frame(value=rbinom(250, 250, 0.5))
+mod_binom <- ggplot(d4, aes(x=value)) + geom_histogram()
+print(mod_binom)
+```
+
+## Finally, we will end with large values of N
+
+### We will start with the normal distribution
+
+```{r}
+d5 <- data.frame(value=rnorm(2000))
+large_norm <- ggplot(d5, aes(x=value)) + geom_histogram()
+print(large_norm)
+```
+
+### And now the binomial distribution
+
+Note how it is to the large-N normal distribution.
+
+```{r}
+d6 <- data.frame(value=rbinom(2000, 2000, 0.5))
+large_binom <- ggplot(d6, aes(x=value)) + geom_histogram()
+print(large_binom)
+```
