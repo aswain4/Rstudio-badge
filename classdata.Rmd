@@ -1,0 +1,76 @@
+# Class Hardware Survey Visualization
+
+```{r}
+library(readr)
+survey <- read_csv('/Users/aswain/Downloads/2023-06-13-survey.csv')
+#print(data)
+```
+
+## Categorical Data
+
+### I will start with the Operating System used by the cohort
+
+```{r}
+# library(ggplot2)
+x1 <- survey$'Operating System'
+g1 <- ggplot(data.frame(x1), aes(x=x1)) + geom_histogram(stat="count")
+g1
+```
+
+As you can see from the above graph, most members use MacOS, a few others use Windows, and there is 1 other.
+
+## Numerical Data
+
+### Start with CPU Cycle Rate (in GHz)
+
+```{r}
+x2 <- survey$'CPU Cycle Rate (in GHz)'
+g2 <- ggplot(data.frame(x2), aes(x=x2)) + geom_histogram(bins=2)
+g2
+```
+
+The above graph is placed into 2 bins to condense as much as possible. The graph is not as accurate as I would like because there is 1 outlier that is altering the appearance.
+
+### Now CPU Number of Cores (int)
+
+```{r}
+x3 <- survey$`CPU Number of Cores (int)`
+g3 <- ggplot(data.frame(x3), aes(x=x3)) + geom_histogram(bins=3)
+g3
+```
+
+The above graph shows that most students have a moderate number of CPU cores.
+
+### RAM (in GB)
+
+```{r}
+x4 <- survey$`RAM (in GB)`
+g4 <- ggplot(data.frame(x4), aes(x=x4)) + geom_histogram(bins=4)
+g4
+```
+
+The above graph shows that most members of the cohort have a low RAM, only \~5 have more than 30 GB.
+
+### Hard Drive Size (in GB)
+
+```{r}
+x5 <- survey$`Hard Drive Size (in GB)`
+g5 <- ggplot(data.frame(x5), aes(x=x5)) + geom_histogram(bins=5)
+g5
+```
+
+As seen in the above graph, there are some outliers here as well. The vast majority of the members have an appropriate amount of hard drive space, it simply looks low due to the outliers.
+
+### GPU CUDA Number of Cores (int)
+
+```{r}
+x6 <- survey$`GPU CUDA Number of Cores (int)`
+g6 <- ggplot(data.frame(x6), aes(x=x6)) + geom_histogram(bins=10)
+g6
+```
+
+In this final graph, we see more outliers that skew the graph. We can see that most of the cohort have low number of GPU CUDA cores.
+
+## Not Addressed
+
+The only column not addressed via histogram was the GPU. This was not graphed because there were so many different entries and none stand out.
