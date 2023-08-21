@@ -14,7 +14,7 @@ survey <- read_csv('/Users/aswain/Downloads/2023-06-13-survey.csv')
 # library(ggplot2)
 x1 <- survey$'Operating System'
 g1 <- ggplot(data.frame(x1), aes(x=x1)) + geom_histogram(stat="count")
-g1
+print(g1)
 ```
 
 As you can see from the above graph, most members use MacOS, a few others use Windows, and there is 1 other.
